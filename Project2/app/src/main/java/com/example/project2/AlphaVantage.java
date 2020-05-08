@@ -56,18 +56,8 @@ public class AlphaVantage {
         task.execute("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="+symbolMain+"&interval=5min&apikey="+ api_key);
     }
 
-
-    private class OnFinishedListener{
-        void onFinished(String rslt);
-    }
-
     private class JsonTask extends AsyncTask<String, String, String> {
 
-        private OnFinishedListener mAfter;
-
-        public JsonTask(OnFinishedListener after){
-            mAfter = after;
-        }
 
         protected String doInBackground(String... params) {
 
@@ -139,9 +129,6 @@ public class AlphaVantage {
                 //printData();
             }
 
-            if( mAfter != null ){
-                mAfter.onFinished();
-            }
             Log.d("stock6---: ", "> " + data[0]);
         }
     }
