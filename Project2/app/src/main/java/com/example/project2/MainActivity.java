@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     TextView pre1, pre2, pre3, pre4, pre5;
 
     AlphaVantage stock1;
+    AlphaVantage stock2;
+    AlphaVantage stock3;
+    AlphaVantage stock4;
+    AlphaVantage stock5;
 
 
     @Override
@@ -49,49 +53,93 @@ public class MainActivity extends AppCompatActivity {
         pre1 = findViewById(R.id.pred1); pre2 = findViewById(R.id.pred2); pre3 = findViewById(R.id.pred3); pre4 = findViewById(R.id.pred4); pre5 = findViewById(R.id.pred5);
 
         stock1 = new AlphaVantage();
-        stock1.executeFunc1(symbols[0]);
-        stock1.executeFunc2(symbols[0]);
-        Log.d("stock2---: ", "> " + stock1.data[0]);
+        stock2 = new AlphaVantage();
+        stock3 = new AlphaVantage();
+        stock4 = new AlphaVantage();
+        stock5 = new AlphaVantage();
+
         try {
-            updateTable();
+            updateSymbols(symbols[0], symbols[1], symbols[2], symbols[3], symbols[4]);
         } catch (Exception e) {
-            Log.d("ERROR2: ", "> Func");
+            Log.d("ERROR", "> Function updateSymbol");
         }
     }
-/*
-    public void main(String args[]) throws Exception {
-        stock1.executeFunc1(symbols[0]);
-        stock1.executeFunc2(symbols[0]);
-        TimeUnit.SECONDS.sleep(5);
+
+    public void updateSymbols(String s1, String s2, String s3, String s4, String s5) throws Exception {
+        stock1.executeFunc1(s1);
+        stock2.executeFunc1(s2);
+        stock3.executeFunc1(s3);
+        stock4.executeFunc1(s4);
+        stock5.executeFunc1(s5);
+
+        stock1.executeFunc2(s1);
+        stock2.executeFunc2(s2);
+        stock3.executeFunc2(s3);
+        stock4.executeFunc2(s4);
+        stock5.executeFunc2(s5);
         updateTable();
     }
-*/
+
     public void updateTable() throws Exception {
-        String[] temp = stock1.getStringArray();
         symb1.setText(stock1.data[0]);
-        Log.d("stock3---: ", "> " + stock1.data[0]);
-        Log.d("Stock4---: ", "> " + temp[0]);
-        /*
         name1.setText(symbolName[0]);
-
         last1.setText(stock1.data[1]);
-
         date1.setText(stock1.data[2]);
-
         time1.setText(stock1.data[3]);
-
         oc1.setText(stock1.data[4] );
-
-        oc1.append("/" + stock1.data[5]);
-
+        oc1.append("/\n" + stock1.data[5]);
         hl1.setText(stock1.data[6]);
-
-        hl1.append("/" + stock1.data[7]);
-
+        hl1.append("/\n" + stock1.data[7]);
         Vol1.setText(stock1.data[8]);
-
         pre1.setText(stock1.data[9]);
-         */
+
+        symb2.setText(stock2.data[0]);
+        name2.setText(symbolName[1]);
+        last2.setText(stock2.data[1]);
+        date2.setText(stock2.data[2]);
+        time2.setText(stock2.data[3]);
+        oc2.setText(stock2.data[4] );
+        oc2.append("/\n" + stock2.data[5]);
+        hl2.setText(stock2.data[6]);
+        hl2.append("/\n" + stock2.data[7]);
+        Vol2.setText(stock2.data[8]);
+        pre2.setText(stock2.data[9]);
+
+        symb3.setText(stock3.data[0]);
+        name3.setText(symbolName[2]);
+        last3.setText(stock3.data[1]);
+        date3.setText(stock3.data[2]);
+        time3.setText(stock3.data[3]);
+        oc3.setText(stock3.data[4] );
+        oc3.append("/\n" + stock3.data[5]);
+        hl3.setText(stock3.data[6]);
+        hl3.append("/\n" + stock3.data[7]);
+        Vol3.setText(stock3.data[8]);
+        pre3.setText(stock3.data[9]);
+
+        symb4.setText(stock4.data[0]);
+        name4.setText(symbolName[3]);
+        last4.setText(stock4.data[1]);
+        date4.setText(stock4.data[2]);
+        time4.setText(stock4.data[3]);
+        oc4.setText(stock4.data[4] );
+        oc4.append("/\n" + stock4.data[5]);
+        hl4.setText(stock4.data[6]);
+        hl4.append("/\n" + stock4.data[7]);
+        Vol4.setText(stock4.data[8]);
+        pre4.setText(stock4.data[9]);
+
+        symb5.setText(stock5.data[0]);
+        name5.setText(symbolName[4]);
+        last5.setText(stock5.data[1]);
+        date5.setText(stock5.data[2]);
+        time5.setText(stock5.data[3]);
+        oc5.setText(stock5.data[4] );
+        oc5.append("/" + stock5.data[5]);
+        hl5.setText(stock5.data[6]);
+        hl5.append("/" + stock5.data[7]);
+        Vol5.setText(stock5.data[8]);
+        pre5.setText(stock5.data[9]);
 
     }
 /*      //TEST FUNCTION

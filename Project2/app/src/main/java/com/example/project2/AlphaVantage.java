@@ -35,25 +35,36 @@ public class AlphaVantage {
     public String[] data = new String[10]; //symbol, price, date, time, open, close, high, low, volume, prediction.
     String symbolMain = "AAPL";
 
-    public String[] getStringArray(){
-        return data.clone();
-    }
-
     private void printData(){
         for (int i = 0; i <= 8; i++) {
             txtJson.append("\n" + i + "  " + data[i]);
         }
     }
 
-    public void executeFunc1(String symbol){
+    public void executeFunc1(String symbol) throws Exception{
         JsonTask task = new JsonTask();
-        task.execute("https://financialmodelingprep.com/api/v3/stock/real-time-price/"+symbol);
-        Log.d("stock5---: ", "> " + data[0]);
+        String result = task.execute("https://financialmodelingprep.com/api/v3/stock/real-time-price/"+symbol).get();
+        String delims = "[{:},\n\"]";
+        String[] tokens = result.split(delims);
+        data[0] = tokens[6];    //symbol
+        data[1] = tokens[12];   //price
     }
 
-    public void executeFunc2(String symbol){
+    public void executeFunc2(String symbol) throws Exception{
         JsonTask task = new JsonTask();
-        task.execute("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="+symbolMain+"&interval=5min&apikey="+ api_key);
+        String result = task.execute("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="+symbol+"&interval=5min&apikey="+ api_key).get();
+        String delims = "[{:},\n\"]";
+        String[] tokens = result.split(delims);
+        String[] temp = tokens[62].split(" ");
+        String tempTime = (temp[1]+":"+tokens[63]+":"+tokens[64]);
+        data[2] = temp[0];     //date
+        data[3] = tempTime;     //time
+        data[4] = tokens[72];     //open
+        data[5] = tokens[93];     //close
+        data[6] = tokens[79];     //high
+        data[7] = tokens[86];     //low
+        data[8] = tokens[100];     //volume
+        data[9] = "Buy";
     }
 
     private class JsonTask extends AsyncTask<String, String, String> {
@@ -109,27 +120,6 @@ public class AlphaVantage {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            String delims = "[{:},\n\"]";
-            String[] tokens = result.split(delims);
-            if(tokens.length < 90) {
-                data[0] = tokens[6];    //symbol
-                data[1] = tokens[12];   //price
-            }
-            if(tokens.length >= 90) {
-                String[] temp = tokens[62].split(" ");
-                String tempTime = (temp[1]+":"+tokens[63]+":"+tokens[64]);
-                data[2] = temp[0];     //date
-                data[3] = tempTime;     //time
-                data[4] = tokens[72];     //open
-                data[5] = tokens[93];     //close
-                data[6] = tokens[79];     //high
-                data[7] = tokens[86];     //low
-                data[8] = tokens[100];     //volume
-                data[9] = "Buy";
-                //printData();
-            }
-
-            Log.d("stock6---: ", "> " + data[0]);
         }
     }
 
