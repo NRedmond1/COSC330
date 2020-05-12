@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight=".75"
             android:padding="5dp"
             android:text="@string/symbol"
             android:textColor="#ffffff" />
@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.75"
             android:padding="5dp"
             android:text="@string/openclose"
             android:textColor="#ffffff" />
@@ -65,8 +65,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_weight="1.75"
             android:padding="5dp"
             android:text="@string/highlow"
             android:textColor="#ffffff" />
@@ -93,7 +92,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight=".75"
             android:gravity="center"
             android:padding="5dp"
             android:text="@string/symbol"
@@ -139,7 +138,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.75"
             android:gravity="center"
             android:padding="5dp"
             android:text="@string/openclose"
@@ -148,7 +147,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.75"
             android:gravity="center"
             android:padding="5dp"
             android:text="@string/highlow"
@@ -158,7 +157,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="right"
             android:padding="5dp"
             android:text="@string/vol"
             android:textColor="#ffffff" />

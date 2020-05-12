@@ -36,10 +36,14 @@ public class listviewAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        TextView mSNo;
-        TextView mProduct;
-        TextView mCategory;
-        TextView mPrice;
+        TextView sym;
+        TextView nam;
+        TextView las;
+        TextView dat;
+        TextView tim;
+        TextView ope;
+        TextView hig;
+        TextView vol;
     }
 
     @Override
@@ -51,21 +55,28 @@ public class listviewAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.listview_row, null);
             holder = new ViewHolder();
-            holder.mSNo = (TextView) convertView.findViewById(R.id.symbol);
-            holder.mProduct = (TextView) convertView.findViewById(R.id.name);
-            holder.mCategory = (TextView) convertView
-                    .findViewById(R.id.last);
-            holder.mPrice = (TextView) convertView.findViewById(R.id.date);
+            holder.sym = (TextView) convertView.findViewById(R.id.symbol);
+            holder.nam = (TextView) convertView.findViewById(R.id.name);
+            holder.las = (TextView) convertView.findViewById(R.id.last);
+            holder.dat = (TextView) convertView.findViewById(R.id.date);
+            holder.tim = (TextView) convertView.findViewById(R.id.times);
+            holder.ope = (TextView) convertView.findViewById(R.id.open);
+            holder.hig = (TextView) convertView.findViewById(R.id.high);
+            holder.vol = (TextView) convertView.findViewById(R.id.vol);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         Model item = productList.get(position);
-        holder.mSNo.setText(item.getsNo().toString());
-        holder.mProduct.setText(item.getProduct().toString());
-        holder.mCategory.setText(item.getCategory().toString());
-        holder.mPrice.setText(item.getPrice().toString());
+        holder.sym.setText(item.getSymbol().toString());
+        holder.nam.setText(item.getName().toString());
+        holder.las.setText(item.getLast().toString());
+        holder.dat.setText(item.getDate().toString());
+        holder.tim.setText(item.getTime().toString());
+        holder.ope.setText(item.getOpen().toString());
+        holder.hig.setText(item.getHigh().toString());
+        holder.vol.setText(item.getVolume().toString());
 
         return convertView;
     }

@@ -2,32 +2,41 @@ package com.example.project2;
 
 public class Model {
 
-    private String sNo;
-    private String product;
-    private String category;
-    private String price;
+    private String symbol;
+    private String name;
+    private String last;
+    private String date;
+    private String time;
+    private String open;
+    private String high;
+    private String volume;
 
-    public Model(String sNo, String product, String category, String price) {
-        this.sNo = sNo;
-        this.product = product;
-        this.category = category;
-        this.price = price;
+    public Model(String symbol, String name, String last, String date, String time, String open, String high, String volume) {
+        this.symbol = symbol;
+        this.name = name;
+        this.last = last;
+        this.date = date;
+        this.time = time;
+        this.open = open;
+        this.high = high;
+        this.volume = volume;
     }
 
-    public String getsNo() {
-        return sNo;
+    public String getSymbol() {
+        return symbol;
     }
-
-    public String getProduct() {
-        return product;
+    public String getName() {
+        return name;
     }
-
-    public String getCategory() {
-        return category;
+    public String getLast() {
+        return last;
     }
-
-    public String getPrice() {
-        return price;
+    public String getDate() {
+        return date;
     }
+    public String getTime(){ return time; }
+    public String getOpen(){ return open; }
+    public String getHigh(){ return high; }
+    public String getVolume(){ return volume; }
 
 }

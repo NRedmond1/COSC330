@@ -1,6 +1,8 @@
 package com.example.project2;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -89,20 +92,12 @@ public class MainAct extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view,
                                         int position, long id) {
 
-                    String sno = ((TextView) view.findViewById(R.id.symbol)).getText().toString();
-                    String product = ((TextView) view.findViewById(R.id.name)).getText().toString();
-                    String category = ((TextView) view.findViewById(R.id.last)).getText().toString();
-                    String price = ((TextView) view.findViewById(R.id.date)).getText().toString();
-
-                    Toast.makeText(getApplicationContext(),
-                            "S no : " + sno + "\n"
-                                    + "Product : " + product + "\n"
-                                    + "Category : " + category + "\n"
-                                    + "Price : " + price, Toast.LENGTH_SHORT).show();
+                    Log.d("MSG", "Clicked List");
                 }
             });
         }
         boolean firstTime = true;
+        @SuppressLint("DefaultLocale")
         private void populateList() {
             try {
                 for (int x = count; x < count + 5; x++) {
@@ -113,8 +108,19 @@ public class MainAct extends AppCompatActivity {
                 //do nothing
             }
 
+            Float temp, temp2, temp3, temp4;
+            String t, t2, t3, t4;
             for (int y = count; y < count + 5; y++) {
-                item[y] = new Model(stock[y].data[0], symbolName[y], stock[y].data[1], stock[y].data[2]);
+                temp = Float.valueOf(stock[y].data[4]);
+                temp2 = Float.valueOf(stock[y].data[5]);
+                temp3 = Float.valueOf(stock[y].data[6]);
+                temp4 = Float.valueOf(stock[y].data[7]);
+                t = String.format("%.2f", temp);
+                t2 = String.format("%.2f", temp2);
+                t3 = String.format("%.2f", temp3);
+                t4 = String.format("%.2f", temp4);
+
+                item[y] = new Model(stock[y].data[0], symbolName[y], stock[y].data[1], stock[y].data[2], stock[y].data[3], t+" / "+t2, t3 + " / " + t4, stock[y].data[8]);
                 productList.add(y, item[y]);
                 if( firstTime == false )
                     productList.remove(y+1);
@@ -124,33 +130,4 @@ public class MainAct extends AppCompatActivity {
                 firstTime = false;
 
         }
-
-
-/*
-            Model item1, item2;
-
-            AlphaVantage stock1, stock2;
-            stock1 = new AlphaVantage();
-            stock2 = new AlphaVantage();
-
-            try {
-                stock1.executeFunc1(symbols[0]);
-                stock2.executeFunc1(symbols[1]);
-
-                stock1.executeFunc2(symbols[0]);
-                stock2.executeFunc2(symbols[1]);
-            }
-            catch(Exception e){
-                //do nothing
-            }
-
-            item1 = new Model(stock1.data[0], symbolName[0], stock1.data[1], stock1.data[2]);
-            productList.add(item1);
-
-            item2 = new Model(stock2.data[0], symbolName[1], stock2.data[1], stock2.data[2]);
-            productList.add(item2);
-
-
-        }
- */
     }
