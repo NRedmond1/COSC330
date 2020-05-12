@@ -6,4 +6,12 @@
         <item>3)</item>
         <item>4)</item>
     </string-array>
+    <string name="symbol">Symbol</string>
+    <string name="name">Name</string>
+    <string name="last">Last</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="openclose">Open/Close</string>
+    <string name="highlow">High/Low</string>
+    <string name="vol">Volume</string>
 </resources>

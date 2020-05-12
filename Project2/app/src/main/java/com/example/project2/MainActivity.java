@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         stock5 = new AlphaVantage();
 
         try {
-            updateSymbols(symbols[0], symbols[1], symbols[2], symbols[3], symbols[4]);
+            //updateSymbols(symbols[0], symbols[1], symbols[2], symbols[3], symbols[4]);
         } catch (Exception e) {
             Log.d("ERROR", "> Function updateSymbol");
         }
@@ -142,10 +142,10 @@ public class MainActivity extends AppCompatActivity {
         pre5.setText(stock5.data[9]);
 
     }
-/*      //TEST FUNCTION
+      //TEST FUNCTION
     public void goToTest(View view){
-        Intent intent = new Intent(this, AlphaVantage.class);
+        Intent intent = new Intent(this, MainAct.class);
         startActivity(intent);
     }
- */
+
 }

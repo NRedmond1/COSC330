@@ -757,6 +757,7 @@
             android:layout_column="8"
             android:layout_gravity="center"
             android:background="#C0C0C0"
-            android:foreground="@drawable/downarrow" />
+            android:foreground="@drawable/downarrow"
+            android:onClick="goToTest" />
     </TableRow>
 </TableLayout>
