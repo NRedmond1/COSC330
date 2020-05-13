@@ -35,7 +35,7 @@ public class listviewAdapter extends BaseAdapter {
         return position;
     }
 
-    private class ViewHolder {
+    public class ViewHolder {
         TextView sym;
         TextView nam;
         TextView las;
