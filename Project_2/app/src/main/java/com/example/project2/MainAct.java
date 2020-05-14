@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Chronometer;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.text.*;
@@ -35,9 +36,39 @@ public class MainAct extends AppCompatActivity {
         AlphaVantage[] stock = new AlphaVantage[10];
         listviewAdapter adapter;
 
-        String message = null;
+        String message = "none";
 
+    public void strategyradioClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radioButton1:
+                if (checked)
+                    Toast.makeText(getApplicationContext(), getString(R.string.strategy1), Toast.LENGTH_LONG).show();
+                    message = "strategy1";
+                break;
+            case R.id.radioButton2:
+                if (checked)
+                    Toast.makeText(getApplicationContext(), getString(R.string.strategy2), Toast.LENGTH_LONG).show();
+                    message = "strategy2";
+                break;
+            case R.id.radioButton3:
+                if (checked)
+                    Toast.makeText(getApplicationContext(), getString(R.string.strategy3), Toast.LENGTH_LONG).show();
+                    message = "strategy3";
+                break;
+            case R.id.radioButton4:
+                if(checked)
+                    Toast.makeText(getApplicationContext(), getString(R.string.strategy4), Toast.LENGTH_LONG).show();
+                    message = "strategy4";
+                break;
+            default:
+                message = "none";
+                break;
+        }
 
+    }
 
 
         @Override
@@ -45,10 +76,6 @@ public class MainAct extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_mainlist);
 
-            Bundle extras = getIntent().getExtras();
-            if(extras!= null){
-                message = extras.getString("StrategyChosen");
-            }
 
             for(int i=0; i<10; i++)
                 stock[i] = new AlphaVantage();
@@ -262,16 +289,8 @@ public class MainAct extends AppCompatActivity {
                     }
                     else{
                         Log.d("MSG", "Clicked List");
-
                         Toast.makeText(getApplicationContext(),
-                            "Symbol : " + sym + "\n"
-                                    + "Name : " + name + "\n"
-                                    + "Last : " + last + "\n"
-                                    + "Date : " + date + "\n"
-                                    + "Time : " + time + "\n"
-                                    + "Open/Close : " + open + "\n"
-                                    + "High/Low : " + high + "\n"
-                                    + "Volume : " + vol + "\n"
+                            "Name : " + name + "\t$" + last + "\n"
                                     + "Strategy : No Strategy Selected.", Toast.LENGTH_LONG).show();
                     }
                 }

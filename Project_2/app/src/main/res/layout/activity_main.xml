@@ -9,52 +9,6 @@
     tools:context=".MainActivity" >
 
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="405dp"
-        android:layout_height="350dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="fill_parent"
-            android:layout_height="87dp"
-            android:checked="false"
-            android:onClick="strategyradioClicked"
-            android:text="@string/strategy1"
-            android:textSize="15dp" />
-
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="fill_parent"
-            android:layout_height="87dp"
-            android:checked="false"
-            android:onClick="strategyradioClicked"
-            android:text="@string/strategy2"
-            android:textSize="15dp" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="fill_parent"
-            android:layout_height="87dp"
-            android:checked="false"
-            android:onClick="strategyradioClicked"
-            android:text="@string/strategy3"
-            android:textSize="15dp" />
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="fill_parent"
-            android:layout_height="87dp"
-            android:checked="false"
-            android:onClick="strategyradioClicked"
-            android:text="@string/strategy4"
-            android:textSize="15dp" />
-    </RadioGroup>
-
     <Button
         android:id="@+id/button1"
         android:layout_width="142dp"
