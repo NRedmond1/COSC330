@@ -43,6 +43,7 @@ public class MainAct extends AppCompatActivity {
         int remainder;
         int subremainder;
 
+
     private void ReadTextFile(MainAct view) throws IOException {
         //String string = "";
         //StringBuilder stringBuilder = new StringBuilder();
@@ -275,7 +276,7 @@ public class MainAct extends AppCompatActivity {
 
 
                     if(message.equals("strategy1")){
-                        //Log.d("MSG", "Clicked Strategy 1");
+                             //Log.d("MSG", "Clicked Strategy 1");
                         if(temp_res >= 1.05){
                             Toast.makeText(getApplicationContext(),
                                     "Name : " + name + "\n"
